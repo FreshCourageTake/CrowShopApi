@@ -5,4 +5,7 @@ module.exports = function(app) {
     // shoppingList Routes
     app.route('/store')
         .get(stores.fetchAllStores);
+
+    app.route('/store/:storeId')
+        .get(stores.fetchStoreInfo);
 };
