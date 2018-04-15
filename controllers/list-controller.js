@@ -19,6 +19,7 @@ exports.createList = function(req, res) {
                 return;
             }
 
+            console.log(req.body);
             let newList = new List(req.body);
             newList.save(function(err, list) {
                 if (err)

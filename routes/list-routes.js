@@ -1,12 +1,12 @@
 'use strict';
 module.exports = function(app) {
-    var lists = require('../controllers/list-controller');
+    const lists = require('../controllers/list-controller');
 
     // shoppingList Routes
-    app.route('/lists')
+    app.route('/list')
         .get(lists.fetchAllLists)
         .post(lists.createList);
 
-    app.route('/lists/:listId')
+    app.route('/list/:listId')
         .delete(lists.deleteList);
 };

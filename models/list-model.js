@@ -1,9 +1,9 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
-var ListSchema = new Schema({
+const ListSchema = new Schema({
     name: {
         type: String,
         required: 'Please enter the name of your list'
@@ -12,13 +12,9 @@ var ListSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    status: {
-        type: [{
-            type: String,
-            enum: ['open', 'completed']
-        }],
-        default: ['open']
-    }
+    completed: Date,
+    store: { type: Schema.Types.ObjectId, ref: 'Store' },
+    items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
 });
 
 module.exports = mongoose.model('List', ListSchema);
